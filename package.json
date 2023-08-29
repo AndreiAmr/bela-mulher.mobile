@@ -41,7 +41,7 @@
   "engines": {
     "node": ">=16"
   },
-  "lint-staged" : {
+  "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write .",
       "eslint --fix"
