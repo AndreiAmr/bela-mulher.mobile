@@ -5,7 +5,7 @@
 import 'react-native';
 import React from 'react';
 import App from '../App';
-import {screen, render, waitFor} from '@testing-library/react-native';
+import { screen, render, waitFor } from '@testing-library/react-native';
 
 // Note: import explicitly to use the types shiped with jest.
 
