@@ -6,6 +6,9 @@ export interface CustomThemeProps {
   colors: {
     main: string;
     secondary: string;
+    gray: string;
+    onboarding_background: string;
+    purple: string;
   };
 }
 

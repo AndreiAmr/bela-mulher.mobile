@@ -5,16 +5,30 @@
 import 'react-native';
 import React from 'react';
 import App from '../App';
-import { screen, render, waitFor } from '@testing-library/react-native';
+import { render } from '@testing-library/react-native';
 
 // Note: import explicitly to use the types shiped with jest.
 
 // Note: test renderer must be required aft
 
+jest.mock('react-native-responsive-fontsize', () => ({
+  RFValue: jest.fn((prop: number) => prop),
+}));
+
+jest.mock('react-native-shadow-2', () => ({
+  Shadow: jest.fn(),
+}));
+
+jest.mock('react-native-modalize', () => ({
+  Modalize: jest.fn(),
+}));
+
+jest.mock('react-native-gesture-handler', () => ({
+  GestureHandlerRootView: jest.fn(),
+}));
+
 it('renders correctly', async () => {
-  render(<App />);
+  const { toJSON } = render(<App />);
 
-  const component = screen.getByTestId('app-container');
-
-  waitFor(() => expect(component).toBeTruthy());
+  expect(toJSON()).toMatchSnapshot();
 });
