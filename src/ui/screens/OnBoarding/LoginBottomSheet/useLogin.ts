@@ -23,6 +23,7 @@ const handleSubmitFN = async (
 
     Alert.alert('passed');
   } catch (err: any) {
+    Alert.alert(err.message);
     console.log(JSON.stringify(err));
   }
 };
