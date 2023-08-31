@@ -11,6 +11,10 @@ import { render } from '@testing-library/react-native';
 
 // Note: test renderer must be required aft
 
+jest.mock('@react-navigation/native-stack', () => ({
+  createNativeStackNavigator: jest.fn(),
+}));
+
 jest.mock('react-native-responsive-fontsize', () => ({
   RFValue: jest.fn((prop: number) => prop),
 }));
