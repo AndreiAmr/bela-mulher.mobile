@@ -1,41 +1,48 @@
+import { useState } from 'react';
 import { useFormik } from 'formik';
 
 import * as yup from 'yup';
-import http from '../../../../infra/http';
-import { Alert } from 'react-native';
+
+import useAuth from '../../../../infra/hooks/useAuth';
+import userLogin, {
+  UserLoginData,
+} from '../../../../infra/services/user-login';
+import { useNavigation } from '@react-navigation/native';
 
 const validationSchema = yup.object({
   email: yup.string().email('E-mail inválido').required('E-mail é obrigatório'),
   password: yup.string().required('Senha é obrigatório'),
 });
 
-const handleSubmitFN = async (
-  email: string,
-  password: string,
-): Promise<void> => {
-  try {
-    const { data: user } = await http.post('/api/professional/login', {
-      email,
-      password,
-    });
-
-    console.log(user);
-
-    Alert.alert('passed');
-  } catch (err: any) {
-    Alert.alert(err.message);
-    console.log(JSON.stringify(err));
-  }
-};
-
 const useLogin = () => {
+  const { handleLogin } = useAuth();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { navigate } = useNavigation();
+
+  const handleSubmitFN = async (prop: UserLoginData): Promise<void> => {
+    try {
+      setIsLoading(true);
+      const { token, user } = await userLogin({
+        email: prop.email,
+        password: prop.password,
+      });
+
+      await handleLogin(token, user);
+      navigate('Home');
+      setIsLoading(false);
+    } catch (err: any) {
+      console.log(JSON.stringify(err));
+      setIsLoading(false);
+    }
+  };
+
   const { values, handleSubmit, handleChange, errors } = useFormik({
     validationSchema,
     initialValues: {
       email: '',
       password: '',
     },
-    onSubmit: ({ email, password }) => handleSubmitFN(email, password),
+    onSubmit: handleSubmitFN,
     validateOnChange: false,
   });
 
@@ -45,11 +52,13 @@ const useLogin = () => {
     items: {
       email: values.email,
       password: values.password,
+      isLoading,
     },
 
     handlers: {
       handleChange,
       handleSubmit,
+      handleChangeIsLoading: setIsLoading,
     },
     errors,
   };

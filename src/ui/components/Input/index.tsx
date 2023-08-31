@@ -1,3 +1,4 @@
+import { View } from 'native-base';
 import React from 'react';
 import { Text } from 'react-native';
 import { TextInput } from 'react-native-paper';
@@ -24,7 +25,7 @@ const Input = ({
   const theme = useTheme();
 
   return (
-    <>
+    <View>
       <TextInput
         secureTextEntry={secureTextEntry}
         label={label}
@@ -42,11 +43,11 @@ const Input = ({
       <Text
         style={{
           fontSize: RFValue(10),
-          marginTop: -9,
+          marginTop: 5,
         }}>
         {error}
       </Text>
-    </>
+    </View>
   );
 };
 
