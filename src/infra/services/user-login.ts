@@ -11,8 +11,6 @@ export interface UserLoginResponse {
   user: UserProps;
 }
 
-fsdfugd;
-
 const userLogin = async ({ email, password }: UserLoginData) => {
   try {
     const { data: user } = await http.post<UserLoginResponse>(
