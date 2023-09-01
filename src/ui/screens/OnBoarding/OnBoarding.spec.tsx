@@ -1,5 +1,5 @@
 import 'react-native';
-import React, { useRef } from 'react-native';
+import React from 'react-native';
 import { render, screen } from '@testing-library/react-native';
 import OnBoarding from '.';
 import { Provider } from 'react-redux';
