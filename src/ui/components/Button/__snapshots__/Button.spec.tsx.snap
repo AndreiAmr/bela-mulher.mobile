@@ -55,7 +55,6 @@ exports[`Button Component Should render correctly 1`] = `
     }
   >
     Click me
-     salve
   </Text>
 </View>
 `;
