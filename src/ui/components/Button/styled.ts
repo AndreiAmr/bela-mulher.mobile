@@ -26,6 +26,6 @@ export const Container = styled.TouchableOpacity<ContainerProps>`
 
 export const Label = styled.Text`
   color: #fff;
-  font-size: ${RFValue(16)}px;
+  font-size: ${RFValue(12)}px;
   font-weight: medium;
 `;
