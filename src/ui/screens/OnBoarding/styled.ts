@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+
 import { RFValue } from 'react-native-responsive-fontsize';
 import { Shadow } from 'react-native-shadow-2';
 
@@ -15,6 +16,7 @@ export const Title = styled.Text`
   font-weight: bold;
   color: ${({ theme }) => theme.colors.main};
   margin-top: 18px;
+
   /* margin-bottom: 40%; */
 `;
 export const Description = styled.Text`

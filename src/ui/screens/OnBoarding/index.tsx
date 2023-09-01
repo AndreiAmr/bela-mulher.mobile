@@ -5,9 +5,10 @@ import { Modalize } from 'react-native-modalize';
 import BackgroundImage from '../../assets/images/background-image.jpg';
 import OrImage from '../../assets/images/or.png';
 import * as S from './styled';
+
 import Button from '../../components/Button';
 
-import LoginBottomSheet from './LoginBottomSheet';
+import LoginBottomSheet from './components/LoginBottomSheet';
 
 const OnBoarding = () => {
   const modalRef = useRef<Modalize>(null);

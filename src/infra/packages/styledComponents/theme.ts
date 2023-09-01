@@ -9,5 +9,6 @@ export const styledTheme: CustomThemeProps = {
     gray: '#6A6A6A',
     purple: '#8487E5',
     error: '#BD4141',
+    marrom_bombom: '#f00',
   },
 };
