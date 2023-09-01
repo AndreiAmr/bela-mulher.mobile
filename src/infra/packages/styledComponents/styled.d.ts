@@ -9,6 +9,7 @@ export interface CustomThemeProps {
     gray: string;
     onboarding_background: string;
     purple: string;
+    error: string;
   };
 }
 

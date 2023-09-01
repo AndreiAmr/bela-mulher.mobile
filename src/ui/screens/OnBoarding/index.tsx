@@ -17,7 +17,7 @@ const OnBoarding = () => {
   };
 
   return (
-    <S.Container>
+    <S.Container testID="onboarding-container">
       <S.Image source={BackgroundImage} />
       <S.Title>Espaço Bela Mulher</S.Title>
 

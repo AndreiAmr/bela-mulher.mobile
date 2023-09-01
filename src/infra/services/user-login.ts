@@ -23,7 +23,8 @@ const userLogin = async ({ email, password }: UserLoginData) => {
 
     return user;
   } catch (err: any) {
-    throw new Error(err);
+    const message = JSON.stringify(err.response.data.message);
+    throw new Error(message);
   }
 };
 

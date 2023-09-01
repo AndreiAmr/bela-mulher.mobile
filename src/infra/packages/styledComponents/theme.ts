@@ -8,5 +8,6 @@ export const styledTheme: CustomThemeProps = {
     onboarding_background: '#FFFFFF',
     gray: '#6A6A6A',
     purple: '#8487E5',
+    error: '#BD4141',
   },
 };

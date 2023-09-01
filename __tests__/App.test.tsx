@@ -11,26 +11,6 @@ import { render } from '@testing-library/react-native';
 
 // Note: test renderer must be required aft
 
-jest.mock('@react-navigation/native-stack', () => ({
-  createNativeStackNavigator: jest.fn(),
-}));
-
-jest.mock('react-native-responsive-fontsize', () => ({
-  RFValue: jest.fn((prop: number) => prop),
-}));
-
-jest.mock('react-native-shadow-2', () => ({
-  Shadow: jest.fn(),
-}));
-
-jest.mock('react-native-modalize', () => ({
-  Modalize: jest.fn(),
-}));
-
-jest.mock('react-native-gesture-handler', () => ({
-  GestureHandlerRootView: jest.fn(),
-}));
-
 it('renders correctly', async () => {
   const { toJSON } = render(<App />);
 

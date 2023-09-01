@@ -1,19 +1,18 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 
 import { Modalize } from 'react-native-modalize';
-import { Modal, useDisclose } from 'native-base';
+import { Modal } from 'native-base';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
-import useLogin from './useLogin';
+import useLogin from './hooks/useLogin';
 import * as S from './styles';
 
-const LoginBottomSheet = forwardRef<Modalize>((props, ref) => {
+const LoginBottomSheet = React.forwardRef<Modalize>((props, ref) => {
   const {
-    items: { email, password, isLoading },
-    handlers: { handleChange, handleSubmit },
+    items: { email, password, isLoading, isModalOpen, dialogInfos },
+    handlers: { handleChange, handleSubmit, onCloseModal },
     errors,
   } = useLogin();
-  const { isOpen, onClose } = useDisclose();
 
   return (
     <Modalize ref={ref} snapPoint={300} avoidKeyboardLikeIOS>
@@ -44,9 +43,10 @@ const LoginBottomSheet = forwardRef<Modalize>((props, ref) => {
         />
       </S.ContentContainer>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isModalOpen} onClose={onCloseModal}>
         <Modal.Content maxWidth="400px">
-          <Modal.Header>Autenticado com sucesso!</Modal.Header>
+          <Modal.Header>{dialogInfos?.title}</Modal.Header>
+          <Modal.Body>{dialogInfos?.description}</Modal.Body>
         </Modal.Content>
       </Modal>
     </Modalize>

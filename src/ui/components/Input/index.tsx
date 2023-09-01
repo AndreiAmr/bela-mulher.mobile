@@ -33,7 +33,7 @@ const Input = ({
         selectionColor={theme.colors.purple}
         underlineColor="#0f0"
         cursorColor="#00f"
-        activeOutlineColor={theme.colors.main}
+        activeOutlineColor={error ? theme.colors.error : theme.colors.main}
         activeUnderlineColor="#f0f"
         mode="outlined"
         placeholder={placeholder}
@@ -44,6 +44,7 @@ const Input = ({
         style={{
           fontSize: RFValue(10),
           marginTop: 5,
+          color: theme.colors.error,
         }}>
         {error}
       </Text>
