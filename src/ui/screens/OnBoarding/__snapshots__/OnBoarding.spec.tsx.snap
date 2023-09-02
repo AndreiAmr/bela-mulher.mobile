@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`On Boarding Screen should render correctly 1`] = `
+exports[`On Boarding Screen Should render correctly 1`] = `
 <View
   style={
     {
