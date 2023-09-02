@@ -38,7 +38,7 @@ const useLogin = () => {
       });
 
       await handleLogin(token, user);
-      navigate('Home');
+      navigate('Authenticated');
       setIsLoading(false);
     } catch (err: any) {
       const error = String(err.message);

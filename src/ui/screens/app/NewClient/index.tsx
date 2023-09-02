@@ -1,12 +1,12 @@
 import { Text, View } from 'native-base';
 import React from 'react';
 
-const Home = () => {
+const NewClient = () => {
   return (
     <View>
-      <Text> ola</Text>
+      <Text> New Client</Text>
     </View>
   );
 };
 
-export default Home;
+export default NewClient;
