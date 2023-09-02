@@ -30,6 +30,15 @@ jest.mock('@react-navigation/native', () => ({
   })),
   NavigationContainer: jest.fn(),
 }));
+jest.mock('@react-navigation/bottom-tabs', () => ({
+  createBottomTabNavigator: jest.fn(),
+}));
+jest.mock('react-native-reanimated', () => ({
+  useAnimatedStyle: jest.fn(),
+  useSharedValue: jest.fn(),
+  withSpring: jest.fn(),
+}));
+jest.mock('react-native-vector-icons/FontAwesome', () => jest.fn());
 
 // jest.mock('styled-components/native', () => {
 //   let mocks = {
