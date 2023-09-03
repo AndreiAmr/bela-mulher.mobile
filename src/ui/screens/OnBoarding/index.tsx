@@ -28,7 +28,11 @@ const OnBoarding = () => {
 
       <S.OptionsContainer>
         <S.OptionsContent>
-          <Button label="Login" onPress={handleOpenModal} />
+          <Button
+            label="Login"
+            onPress={handleOpenModal}
+            testId="login-button"
+          />
           <Image source={OrImage} />
           <Button
             label="Cadastre-se"

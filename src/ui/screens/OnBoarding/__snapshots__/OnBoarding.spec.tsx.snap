@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`On Boarding Screen Should render correctly 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "#FFFFFF",
+      "flexBasis": 0,
+      "flexGrow": 1,
+      "flexShrink": 1,
+      "justifyContent": "center",
+    }
+  }
+  testID="onboarding-container"
+>
+  <Image
+    source={
+      {
+        "testUri": "../../../src/ui/assets/images/background-image.jpg",
+      }
+    }
+    style={
+      {
+        "height": "30%",
+        "width": "100%",
+      }
+    }
+  />
+  <Text
+    style={
+      {
+        "color": "#00BFFF",
+        "fontSize": 22,
+        "fontWeight": "bold",
+        "marginTop": 18,
+      }
+    }
+  >
+    Espaço Bela Mulher
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#6A6A6A",
+        "fontSize": 11,
+        "fontWeight": "medium",
+        "marginBottom": "40%",
+      }
+    }
+  >
+    Gerencie seus agendamentos de forma fácil e prática!
+  </Text>
+  <View
+    style={
+      {
+        "bottom": 0,
+        "height": "30%",
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+  />
+</View>
+`;

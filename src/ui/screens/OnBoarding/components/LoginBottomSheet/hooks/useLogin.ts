@@ -43,7 +43,7 @@ const useLogin = () => {
         key: 'bm-access',
         data: token,
       });
-      navigate('Home');
+      navigate('Authenticated');
       setIsLoading(false);
     } catch (err: any) {
       const error = String(err.message);
