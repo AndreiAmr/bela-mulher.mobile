@@ -11,6 +11,7 @@ import { useNavigation } from '@react-navigation/native';
 import { HTTPErrorsResponse } from '../../../../../../infra/http/errors';
 
 import { useDisclose } from 'native-base';
+import storage from '../../../../../../infra/packages/storage';
 
 interface DialogInfosProps {
   title: string;
@@ -38,6 +39,10 @@ const useLogin = () => {
       });
 
       await handleLogin(token, user);
+      await storage.save({
+        key: 'bm-access',
+        data: token,
+      });
       navigate('Home');
       setIsLoading(false);
     } catch (err: any) {

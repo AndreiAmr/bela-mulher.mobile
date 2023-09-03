@@ -15,7 +15,7 @@ describe('Button Component', () => {
       console.log('pressed');
     };
 
-    render(
+    const { toJSON } = render(
       <ThemeProvider theme={styledTheme}>
         <Button
           color="gray"
@@ -29,5 +29,6 @@ describe('Button Component', () => {
     const element = screen.getByTestId('button-testid');
 
     expect(element).toBeTruthy();
+    expect(toJSON()).toMatchSnapshot();
   });
 });
