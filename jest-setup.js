@@ -1,3 +1,4 @@
+import Storage from 'react-native-storage';
 /* eslint-disable no-undef */
 require('@testing-library/jest-dom');
 
@@ -22,3 +23,7 @@ jest.mock('react-native-modalize', () => ({
 jest.mock('react-native-gesture-handler', () => ({
   GestureHandlerRootView: jest.fn(),
 }));
+jest.mock('@react-native-async-storage/async-storage', () => ({
+  AsyncStorage: jest.fn(),
+}));
+jest.mock('react-native-storage');
