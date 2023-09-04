@@ -1,12 +1,14 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OnBoarding from '../ui/screens/OnBoarding';
+import Boot from '../ui/screens/Boot';
 
 import AppRoutes from './app.routes';
 
 const Stack = createNativeStackNavigator<{
   Authenticated: undefined;
   Auth: undefined;
+  Boot: undefined;
 }>();
 
 const Routes = () => {
@@ -16,6 +18,7 @@ const Routes = () => {
         headerShown: false,
         animation: 'slide_from_right',
       }}>
+      <Stack.Screen name="Boot" component={Boot} />
       <Stack.Screen name="Auth" component={OnBoarding} />
       <Stack.Screen name="Authenticated" component={AppRoutes} />
     </Stack.Navigator>

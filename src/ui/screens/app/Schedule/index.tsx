@@ -3,7 +3,7 @@ import React from 'react';
 
 const Schedule = () => {
   return (
-    <View>
+    <View flex={1} backgroundColor="#fff">
       <Text>Schedule</Text>
     </View>
   );

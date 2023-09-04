@@ -3,7 +3,7 @@ import React from 'react';
 
 const NewClient = () => {
   return (
-    <View>
+    <View flex={1} backgroundColor="#fff">
       <Text> New Client</Text>
     </View>
   );

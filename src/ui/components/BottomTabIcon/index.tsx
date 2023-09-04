@@ -19,8 +19,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 interface BottomTabIconProps {
   label: string;
-
-  onPress(): void;
 }
 
 const BottomTabIcon = ({ label, onPress }: BottomTabIconProps) => {
