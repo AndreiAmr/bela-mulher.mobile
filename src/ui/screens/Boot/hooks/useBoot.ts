@@ -16,7 +16,7 @@ const useBoot = () => {
       setTimeout(() => {
         navigation.reset({
           index: 0,
-          routes: [{ name: 'Home' }] as any,
+          routes: [{ name: 'Authenticated' }] as any,
         });
       }, 3000);
     } catch (err) {

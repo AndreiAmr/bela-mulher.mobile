@@ -30,9 +30,7 @@ const AppRoutes = () => {
             tabBarLabel: 'Home',
 
             tabBarButton: props => {
-              return (
-                <BottomTabIcon {...props} onPress={() => {}} label="Home" />
-              );
+              return <BottomTabIcon {...props} label="Home" />;
             },
           }}
         />
@@ -42,9 +40,7 @@ const AppRoutes = () => {
           options={{
             tabBarLabel: 'Agenda',
             tabBarButton: props => {
-              return (
-                <BottomTabIcon {...props} onPress={() => {}} label="Agenda" />
-              );
+              return <BottomTabIcon {...props} label="Agenda" />;
             },
           }}
         />
@@ -54,9 +50,7 @@ const AppRoutes = () => {
           options={{
             tabBarLabel: 'Nova Client',
             tabBarButton: props => {
-              return (
-                <BottomTabIcon {...props} onPress={() => {}} label="Cliente" />
-              );
+              return <BottomTabIcon {...props} label="Cliente" />;
             },
           }}
         />
@@ -67,13 +61,7 @@ const AppRoutes = () => {
           options={{
             tabBarLabel: 'Novo Procedimento',
             tabBarButton: props => {
-              return (
-                <BottomTabIcon
-                  {...props}
-                  onPress={() => {}}
-                  label="Procedimento"
-                />
-              );
+              return <BottomTabIcon {...props} label="Procedimento" />;
             },
           }}
         />
