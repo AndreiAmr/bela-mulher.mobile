@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
-import { useTheme } from 'styled-components/native';
+// import { useTheme } from 'styled-components/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../ui/screens/app/Home';
 import Schedule from '../ui/screens/app/Schedule';
@@ -11,7 +11,7 @@ import BottomTabIcon from '../ui/components/BottomTabIcon';
 const AppTabs = createBottomTabNavigator();
 
 const AppRoutes = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
 
   return (
     <AppTabs.Navigator>
@@ -19,8 +19,7 @@ const AppRoutes = () => {
         screenOptions={{
           headerShown: false,
           tabBarStyle: {
-            backgroundColor: theme.colors.purple,
-            paddingLeft: 10,
+            backgroundColor: '#143F6B',
           },
         }}>
         <AppTabs.Screen
@@ -30,7 +29,7 @@ const AppRoutes = () => {
             tabBarLabel: 'Home',
 
             tabBarButton: props => {
-              return <BottomTabIcon {...props} label="Home" />;
+              return <BottomTabIcon {...props} label="Home" iconName="home" />;
             },
           }}
         />
@@ -40,7 +39,9 @@ const AppRoutes = () => {
           options={{
             tabBarLabel: 'Agenda',
             tabBarButton: props => {
-              return <BottomTabIcon {...props} label="Agenda" />;
+              return (
+                <BottomTabIcon {...props} label="Agenda" iconName="calendar" />
+              );
             },
           }}
         />
@@ -50,7 +51,9 @@ const AppRoutes = () => {
           options={{
             tabBarLabel: 'Nova Client',
             tabBarButton: props => {
-              return <BottomTabIcon {...props} label="Cliente" />;
+              return (
+                <BottomTabIcon {...props} label="Cliente" iconName="addUser" />
+              );
             },
           }}
         />
@@ -61,7 +64,13 @@ const AppRoutes = () => {
           options={{
             tabBarLabel: 'Novo Procedimento',
             tabBarButton: props => {
-              return <BottomTabIcon {...props} label="Procedimento" />;
+              return (
+                <BottomTabIcon
+                  {...props}
+                  label="Procedimento"
+                  iconName="newSchedule"
+                />
+              );
             },
           }}
         />

@@ -1,8 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { Text } from 'native-base';
 
-import { useTheme } from 'styled-components/native';
-
 import React, { useLayoutEffect } from 'react';
 import { TouchableOpacity } from 'react-native';
 
@@ -16,18 +14,28 @@ import Animated, {
 } from 'react-native-reanimated';
 import { RFValue } from 'react-native-responsive-fontsize';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { BottomTabBarButtonProps } from '@react-navigation/bottom-tabs';
 
-interface BottomTabIconProps {
+const icons = {
+  home: 'home',
+  calendar: 'calendar',
+  addUser: 'user-plus',
+  newSchedule: 'calendar-plus-o',
+};
+
+interface BottomTabIconProps extends BottomTabBarButtonProps {
   label: string;
+  iconName: keyof typeof icons;
+  onPress?(): void;
 }
+const BottomTabIcon = ({ label, iconName, ...props }: BottomTabIconProps) => {
+  // const theme = useTheme();
 
-const BottomTabIcon = ({ label, onPress }: BottomTabIconProps) => {
-  const theme = useTheme();
-
-  const marginBottom = useSharedValue(40);
+  const marginBottom = useSharedValue(0);
   const borderWidth = useSharedValue(0);
   const borderRadius = useSharedValue(0);
-
+  const labelHeight = useSharedValue(20);
+  const labelOpacity = useSharedValue(1);
   const navigation = useNavigation();
 
   const isFocused = navigation.isFocused();
@@ -38,6 +46,11 @@ const BottomTabIcon = ({ label, onPress }: BottomTabIconProps) => {
     borderRadius: borderRadius.value,
   }));
 
+  const textAnimatedStyle = useAnimatedStyle(() => ({
+    height: labelHeight.value,
+    opacity: labelOpacity.value,
+  }));
+
   useLayoutEffect(() => {
     if (isFocused) {
       marginBottom.value = withTiming(30, {
@@ -46,7 +59,7 @@ const BottomTabIcon = ({ label, onPress }: BottomTabIconProps) => {
       });
       borderWidth.value = withDelay(
         250,
-        withTiming(5, {
+        withTiming(2, {
           duration: 125,
           easing: Easing.back(),
         }),
@@ -55,6 +68,9 @@ const BottomTabIcon = ({ label, onPress }: BottomTabIconProps) => {
         duration: 250,
         easing: Easing.back(),
       });
+
+      labelHeight.value = withTiming(0);
+      labelOpacity.value = withTiming(0);
     } else {
       borderWidth.value = withTiming(0, {
         duration: 250,
@@ -68,12 +84,20 @@ const BottomTabIcon = ({ label, onPress }: BottomTabIconProps) => {
         duration: 250,
         easing: Easing.back(),
       });
+      labelHeight.value = withTiming(20);
+      labelOpacity.value = withDelay(500, withTiming(1));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFocused]);
 
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity
+      onPress={props.onPress}
+      style={{
+        flex: 0.5,
+
+        alignItems: 'center',
+      }}>
       <Animated.View
         style={[
           animatedStyle,
@@ -81,24 +105,30 @@ const BottomTabIcon = ({ label, onPress }: BottomTabIconProps) => {
             width: RFValue(45),
             height: RFValue(45),
 
-            marginLeft: 5,
             alignItems: 'center',
             justifyContent: 'center',
             borderColor: '#fff',
-            backgroundColor: theme.colors.purple,
+            backgroundColor: '#143F6B',
             // padding: 10,
-            marginHorizontal: RFValue(30),
+            // marginHorizontal: RFValue(30),
           },
         ]}>
-        <Icon name="list-alt" />
-        <Text
-          style={{
-            fontSize: RFValue(10),
-            width: 80,
-            textAlign: 'center',
-          }}>
-          {!isFocused && label}
-        </Text>
+        <Icon
+          name={icons[iconName]}
+          size={isFocused ? RFValue(16) : RFValue(11)}
+          color={isFocused ? '#FF7600' : '#FFFFFF90'}
+        />
+        <Animated.View style={[textAnimatedStyle]}>
+          <Text
+            style={{
+              fontSize: RFValue(10),
+              width: 80,
+              textAlign: 'center',
+              color: '#FFFFFF90',
+            }}>
+            {label}
+          </Text>
+        </Animated.View>
       </Animated.View>
     </TouchableOpacity>
   );
