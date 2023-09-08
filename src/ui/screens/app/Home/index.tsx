@@ -1,39 +1,14 @@
 import React from 'react';
-import { Text, View, Button } from 'native-base';
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withSpring,
-} from 'react-native-reanimated';
+import { View } from 'native-base';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Header from '../../../components/Header';
 
 const Home = () => {
-  const width = useSharedValue(10);
-  const style = useAnimatedStyle(() => ({
-    width: width.value,
-  }));
-
   return (
-    <View
-      style={{
-        backgroundColor: '#fff',
-        flex: 1,
-      }}>
-      <Text> Home</Text>
-
-      <Button
-        onPress={() => {
-          width.value = withSpring(width.value + 10);
-        }}
-      />
-      <Animated.View
-        style={[
-          style,
-          {
-            height: 100,
-            backgroundColor: '#f00',
-          },
-        ]}
-      />
+    <View background="#fff" flex={1}>
+      <SafeAreaView>
+        <Header label="Home" />
+      </SafeAreaView>
     </View>
   );
 };

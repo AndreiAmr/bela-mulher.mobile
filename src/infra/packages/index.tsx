@@ -5,12 +5,21 @@ import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
-import { NativeBaseProvider } from 'native-base';
+import { NativeBaseProvider, extendTheme } from 'native-base';
 
 const PackagesProviders = ({ children }: PropsWithChildren) => {
+  const nativeBaseTheme = extendTheme({
+    fonts: {
+      heading: 'Ubuntu-Medium',
+      body: 'Ubuntu-Regular',
+      mono: 'Ubuntu-Bold',
+      customFont: 'Ubuntu-Bold',
+    },
+  });
+
   return (
     <Provider store={store}>
-      <NativeBaseProvider>
+      <NativeBaseProvider theme={nativeBaseTheme}>
         <GestureHandlerRootView style={{ flex: 1 }}>
           <NavigationContainer>
             <ThemeProvider theme={styledTheme}>{children}</ThemeProvider>

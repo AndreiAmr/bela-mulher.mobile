@@ -12,19 +12,24 @@ export const Container = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-size: ${RFValue(22)}px;
-  font-weight: bold;
+  font-size: ${RFValue(32)}px;
+
   color: ${({ theme }) => theme.colors.main};
   margin-top: 18px;
+  font-family: 'Ubuntu-Bold';
+  /* border-width: 1px; */
 
   /* margin-bottom: 40%; */
 `;
 export const Description = styled.Text`
   font-size: ${RFValue(11)}px;
-  font-weight: medium;
+  /* font-weight: medium; */
   color: ${({ theme }) => theme.colors.gray};
   /* margin-top: 18px; */
   margin-bottom: 40%;
+  font-family: 'Ubuntu-Bold';
+
+  font-family: 'Ubuntu-Regular';
 `;
 
 export const OptionsContainer = styled.View`

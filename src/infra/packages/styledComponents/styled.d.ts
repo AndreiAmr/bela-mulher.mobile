@@ -10,7 +10,7 @@ export interface CustomThemeProps {
     onboarding_background: string;
     purple: string;
     error: string;
-    marrom_bombom: string;
+    green: string;
   };
 }
 

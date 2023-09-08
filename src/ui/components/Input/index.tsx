@@ -39,12 +39,16 @@ const Input = ({
         placeholder={placeholder}
         value={value}
         onChangeText={onChange}
+        contentStyle={{
+          fontFamily: 'Ubuntu-Regular',
+        }}
       />
       <Text
         style={{
           fontSize: RFValue(10),
           marginTop: 5,
           color: theme.colors.error,
+          fontFamily: 'Ubuntu-Regular',
         }}>
         {error}
       </Text>

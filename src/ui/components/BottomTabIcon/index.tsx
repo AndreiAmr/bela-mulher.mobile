@@ -116,7 +116,7 @@ const BottomTabIcon = ({ label, iconName, ...props }: BottomTabIconProps) => {
         <Icon
           name={icons[iconName]}
           size={isFocused ? RFValue(16) : RFValue(11)}
-          color={isFocused ? '#FF7600' : '#FFFFFF90'}
+          color={isFocused ? '#FFF' : '#FFFFFF90'}
         />
         <Animated.View style={[textAnimatedStyle]}>
           <Text
