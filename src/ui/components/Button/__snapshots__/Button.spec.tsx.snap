@@ -49,8 +49,8 @@ exports[`Button Component Should render correctly 1`] = `
     style={
       {
         "color": "#fff",
+        "fontFamily": "Ubuntu-Medium",
         "fontSize": 12,
-        "fontWeight": "medium",
       }
     }
   >

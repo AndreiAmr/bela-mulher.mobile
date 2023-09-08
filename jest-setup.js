@@ -45,6 +45,8 @@ jest.mock('react-native-reanimated', () => ({
 }));
 jest.mock('react-native-vector-icons/FontAwesome', () => jest.fn());
 
+jest.mock('react-redux');
+
 // jest.mock('styled-components/native', () => {
 //   let mocks = {
 //     TouchableOpacity: jest.fn(),
