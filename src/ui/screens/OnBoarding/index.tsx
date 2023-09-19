@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Image } from 'react-native';
+import { Image } from 'native-base';
 import { Modalize } from 'react-native-modalize';
 
 import BackgroundImage from '../../assets/images/background-image.jpg';

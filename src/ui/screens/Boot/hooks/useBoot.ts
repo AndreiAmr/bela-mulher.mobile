@@ -2,7 +2,12 @@ import { useNavigation } from '@react-navigation/native';
 import storage from '../../../../infra/packages/storage';
 import verifyToken from '../../../../infra/services/verify-token';
 
+import useAuth from '../../../../infra/hooks/useAuth';
+import getProfile from '../../../../infra/services/get-profile';
+
 const useBoot = () => {
+  const { handleLogin } = useAuth();
+
   const navigation = useNavigation();
 
   const init = async () => {
@@ -10,6 +15,11 @@ const useBoot = () => {
       const token = await storage.load({
         key: 'bm-access',
       });
+
+      const user = await getProfile(token);
+
+      console.log(user);
+      handleLogin(token, user);
 
       await verifyToken(token);
 
@@ -20,7 +30,7 @@ const useBoot = () => {
         });
       }, 3000);
     } catch (err) {
-      //   console.log(err);
+      console.log(err);
       setTimeout(() => {
         navigation.reset({
           index: 0,

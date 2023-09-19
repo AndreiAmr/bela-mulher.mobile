@@ -56,3 +56,7 @@ export const Image = styled.Image`
   width: 100%;
   height: 30%;
 `;
+
+export const Imagem = styled.Image`
+  background-color: #fff;
+`;

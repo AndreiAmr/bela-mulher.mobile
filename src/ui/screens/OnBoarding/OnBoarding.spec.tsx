@@ -28,8 +28,6 @@ describe('On Boarding Screen', () => {
 
     const loginButton = queryByTestId('login-button');
 
-    // console.log(loginButton !== null);
-
     // expect(container).toBeTruthy();
     expect(toJSON()).toMatchSnapshot();
 

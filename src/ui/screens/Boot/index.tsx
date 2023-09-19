@@ -25,9 +25,8 @@ const Boot = () => {
         style={{
           height: RFValue(130),
           width: '100%',
-
-          //   borderWidth: 100,
         }}
+        loop
       />
     </View>
   );

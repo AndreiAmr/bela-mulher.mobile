@@ -11,9 +11,7 @@ jest.mock('react-native-responsive-fontsize', () => ({
 
 describe('Button Component', () => {
   it('Should render correctly', () => {
-    const pressFN = () => {
-      console.log('pressed');
-    };
+    const pressFN = () => {};
 
     const { toJSON } = render(
       <ThemeProvider theme={styledTheme}>

@@ -1,18 +1,18 @@
 import http from '../http';
 
-const verifyToken = async (token: string) => {
+const getProfile = async (token: string) => {
   try {
-    await http.get('/api/token/verify', {
+    const { data } = await http.get('/api/professional/profile', {
       headers: {
         authorization: token,
       },
     });
 
-    return true;
+    return data;
   } catch (err: any) {
     console.warn(err);
     throw new Error(JSON.stringify(err));
   }
 };
 
-export default verifyToken;
+export default getProfile;

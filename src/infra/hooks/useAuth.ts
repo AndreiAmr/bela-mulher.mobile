@@ -8,9 +8,8 @@ interface AuthLoginPayloadData {
 }
 
 const useAuth = () => {
-  const user = useSelector<{ user: UserProps }>(
-    state => state.user,
-  ) as UserProps | null;
+  const user = useSelector(state => state.user.user) as UserProps | null;
+  console.log(user);
   const dispatch = useDispatch();
 
   const handleLogin = async (token: string, userProps: UserProps) => {
